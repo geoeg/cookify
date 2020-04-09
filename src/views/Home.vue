@@ -18,22 +18,28 @@
         </v-col>
         <v-col cols="10" class="pb-0">
           <v-row justify="center">
-            <v-avatar max-width="300px" max-height="300px" height="auto" width="auto">
-              <v-img
-                src="../assets/jokata.jpg"
-                alt="profile-pic"
-                width="auto"
-              />
-            </v-avatar>
+            <v-btn fab icon height="auto" width="auto" disabled elevation="4">
+              <v-avatar size="300">
+                <v-img src="../assets/jokata.jpg" alt="" />
+              </v-avatar>
+            </v-btn>
           </v-row>
         </v-col>
         <v-col cols="10" class="pt-0 pb-0">
           <timeline></timeline>
         </v-col>
-        <v-col cols="10" class="pt-0 pb-0">
+        <v-col cols="10" class="pt-0">
           <v-card>
-            <v-row justify="center" align-items="start">
-              <v-card-title>contact me</v-card-title>
+            <v-row justify="center">
+              <v-btn class="ma-2" large color="teal" icon>
+                <v-icon>mdi-vuetify</v-icon>
+              </v-btn>
+              <v-btn class="ma-2" large color="teal" icon>
+                <v-icon>mdi-vuetify</v-icon>
+              </v-btn>
+              <v-btn class="ma-2" large color="teal" icon>
+                <v-icon>mdi-vuetify</v-icon>
+              </v-btn>
             </v-row>
           </v-card>
         </v-col>

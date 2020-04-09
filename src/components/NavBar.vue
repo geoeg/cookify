@@ -1,23 +1,19 @@
 <template>
-  <v-app-bar app :hide-on-scroll="true" :short="true">
-    <div class="d-flex align-center">
-      <v-img
-        alt="Vuetify Logo"
-        class="shrink mr-2"
-        contain
-        src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-        transition="scale-transition"
-        width="30"
-      />
-    </div>
-    <v-toolbar-title>Cookify</v-toolbar-title>
+  <v-app-bar app dense elevate-on-scroll color="white">
+    <v-app-bar-nav-icon>
+      <v-avatar size="40">
+        <v-img src="../assets/jokata.jpg" alt="" />
+      </v-avatar>
+    </v-app-bar-nav-icon>
+
+    <v-toolbar-title class="font-weight-bold">Cookify</v-toolbar-title>
+
     <v-spacer></v-spacer>
-    <v-toolbar-items>
-      <v-btn v-for="item in items" :key="item.title" :to="item.link">
-        <v-icon left>{{ item.icon }}</v-icon>
-        {{ item.title }}
-      </v-btn>
-    </v-toolbar-items>
+
+    <v-btn v-for="item in items" :key="item.title" :to="item.link" text rounded>
+      <v-icon left>{{ item.icon }}</v-icon>
+      {{ item.title }}
+    </v-btn>
   </v-app-bar>
 </template>
 
