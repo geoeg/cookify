@@ -24,7 +24,7 @@
                 aspect-ratio="1"
                 id="main-avatar"
                 width="100%"
-                max-width="350px"
+                max-width="400px"
                 class="elevation-3"
                 src="../assets/jokata.jpg"
                 alt=""
@@ -53,17 +53,20 @@
           </v-card>
         </v-col>
       </v-row>
+      <get-top-button></get-top-button>
     </v-container>
   </div>
 </template>
 
 <script>
 import Timeline from "../components/Timeline.vue";
+import GetTopButton from "../components/GetTopButton.vue";
 
 export default {
   name: "Contact",
   components: {
     Timeline,
+    GetTopButton
   },
   data() {
     return {};

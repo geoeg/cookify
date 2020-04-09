@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app color="blue lighten-3">
       <nav-bar></nav-bar>
 
       <v-content>
@@ -24,4 +24,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+#main-app {
+  background-color: lightblue; 
+}
+</style>

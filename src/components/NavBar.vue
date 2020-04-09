@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar app dense absolute :hide-on-scroll="true" color="white">
+  <v-app-bar app dense absolute flat :hide-on-scroll="true" color="transparent">
     <v-app-bar-nav-icon>
       <v-avatar size="40">
         <v-img src="../assets/jokata.jpg" alt="" />

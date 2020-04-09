@@ -12,9 +12,7 @@
           d-flex
           class="flex-column flex-wrap justify-center align-center"
         >
-          <v-img
-            src="https://www.theasiantelegraph.net/wp-content/uploads/2019/11/download-3.jpg"
-          ></v-img>
+          <v-img src="../assets/chef.jpg" />
           <v-card-title>title</v-card-title>
           <v-card-subtitle>subtitle</v-card-subtitle>
         </v-container>
