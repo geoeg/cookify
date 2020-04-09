@@ -38,17 +38,9 @@
         </v-col>
 
         <v-col cols="10" class="pt-0">
-          <v-card>
+          <v-card width="100%" elevation="3">
             <v-row justify="center">
-              <v-btn class="ma-2" large color="teal" icon>
-                <v-icon>mdi-vuetify</v-icon>
-              </v-btn>
-              <v-btn class="ma-2" large color="teal" icon>
-                <v-icon>mdi-vuetify</v-icon>
-              </v-btn>
-              <v-btn class="ma-2" large color="teal" icon>
-                <v-icon>mdi-vuetify</v-icon>
-              </v-btn>
+              <v-card-subtitle>to be continued..</v-card-subtitle>
             </v-row>
           </v-card>
         </v-col>

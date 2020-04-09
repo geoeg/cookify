@@ -1,16 +1,25 @@
 <template>
-  <v-app-bar app dense absolute flat :hide-on-scroll="true" color="transparent">
+  <v-app-bar app dense absolute flat :hide-on-scroll="true" color="primary">
     <v-app-bar-nav-icon>
       <v-avatar size="40">
         <v-img src="../assets/jokata.jpg" alt="" />
       </v-avatar>
     </v-app-bar-nav-icon>
 
-    <v-toolbar-title class="font-weight-bold">Cookify</v-toolbar-title>
+    <v-toolbar-title class="font-weight-bold white--text"
+      >Cookify</v-toolbar-title
+    >
 
     <v-spacer></v-spacer>
 
-    <v-btn v-for="item in items" :key="item.title" :to="item.link" text rounded>
+    <v-btn
+      v-for="item in items"
+      :key="item.title"
+      :to="item.link"
+      text
+      rounded
+      class="white--text"
+    >
       <v-icon left>{{ item.icon }}</v-icon>
       {{ item.title }}
     </v-btn>
