@@ -1,8 +1,10 @@
 <template>
-  <v-app-bar app dense absolute flat :hide-on-scroll="true" color="primary">
+
+  <v-app-bar app dense absolute flat :hide-on-scroll="true" color="grey darken-1">
     <v-app-bar-nav-icon>
       <v-avatar size="40">
-        <v-img src="../assets/jokata.jpg" alt="" />
+        <!-- <v-img src="../assets/jokata.jpg" alt="" /> -->
+        <v-icon large class="white--text">mdi-chef-hat</v-icon>
       </v-avatar>
     </v-app-bar-nav-icon>
 
@@ -18,12 +20,13 @@
       :to="item.link"
       text
       rounded
-      class="white--text"
+      class="white--text font-weight-black overline"
     >
       <v-icon left>{{ item.icon }}</v-icon>
       {{ item.title }}
     </v-btn>
   </v-app-bar>
+
 </template>
 
 <script>

@@ -1,6 +1,6 @@
 <template>
   <v-app color="blue lighten-3">
-    <!-- <nav-bar></nav-bar> -->
+    <nav-bar></nav-bar>
 
     <v-content>
       <router-view></router-view>
@@ -11,13 +11,13 @@
 </template>
 
 <script>
-// import NavBar from "./components/NavBar.vue";
+import NavBar from "./components/NavBar.vue";
 import Footer from "./components/Footer.vue";
 
 export default {
   name: "App",
   components: {
-    // "nav-bar": NavBar,
+    "nav-bar": NavBar,
     "bottom-bar": Footer,
   },
   data: () => ({}),
