@@ -11,6 +11,7 @@
 
 <script>
 export default {
+  name: "RecipePageTitles",
   props: ["title", "subtitle"],
 };
 </script>

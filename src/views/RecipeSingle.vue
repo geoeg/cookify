@@ -1,5 +1,6 @@
 <template>
   <v-container fluid class="pa-0 ma-0">
+
     <v-container id="recipe-topbar" fluid class="pa-0 ma-0">
       <v-row justify="center" align="center">
         <v-col cols="12" sm="10" md="8">
@@ -10,9 +11,9 @@
         </v-col>
       </v-row>
       <v-row justify="center" align="center">
-        <v-btn text href="#overview-section">overview</v-btn>
-        <v-btn text href="#ingredients-section">ingredients</v-btn>
-        <v-btn text href="#steps-section">steps</v-btn>
+        <v-col cols="12" sm="10" md="8" class="pa-0 ma-0">
+          <sub-nav-bar :itemData="subNavBarData" />
+        </v-col>
       </v-row>
       <v-row justify="center" align="center">
         <v-col cols="11" sm="8" md="6">
@@ -69,11 +70,13 @@
     </v-container>
 
     <get-top-button></get-top-button>
+
   </v-container>
 </template>
 
 <script>
-import RecipeTitleSection from "../components/RecipeTitleSection.vue";
+import RecipePageTitles from "../components/RecipePageTitles.vue";
+import SubNavBar from "../components/SubNavBar.vue";
 import RecipeOverview from "../components/RecipeOverview.vue";
 import RecipeIngredients from "../components/RecipeIngredients.vue";
 import RecipeSteps from "../components/RecipeSteps.vue";
@@ -82,15 +85,30 @@ import GetTopButton from "../components/GetTopButton.vue";
 
 export default {
   components: {
-    "get-top-button": GetTopButton,
-    "recipe-titles": RecipeTitleSection,
+    "recipe-titles": RecipePageTitles,
+    "sub-nav-bar": SubNavBar,
     "recipe-overview": RecipeOverview,
     "recipe-ingredients": RecipeIngredients,
     "recipe-steps": RecipeSteps,
     "recipe-carousel": RecipeCarousel,
+    "get-top-button": GetTopButton
   },
   data() {
     return {
+      subNavBarData: [
+        {
+          title: "Overview",
+          href: "#overview-section"
+        },
+        {
+          title: "Ingredients",
+          href: "#ingredients-section"
+        },
+        {
+          title: "Steps",
+          href: "#steps-section"
+        }
+      ],
       colors: [
         "indigo",
         "warning",
