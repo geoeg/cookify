@@ -1,5 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import Home from "../views/Home.vue";
 
 Vue.use(VueRouter);
 
@@ -7,8 +8,7 @@ const routes = [
   {
     path: "/",
     name: "home",
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Home.vue"),
+    component: Home
   },
   {
     path: "/recipes",
@@ -16,12 +16,6 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/RecipesCatalog.vue"),
   },
-  // {
-  //   path: "/recipe",
-  //   name: "recipe",
-  //   component: () =>
-  //     import(/* webpackChunkName: "recipe" */ "../views/RecipeSingle.vue"),
-  // },
   {
     path: "/recipe/:id",
     name: "singleRecipe",
@@ -49,14 +43,14 @@ const router = new VueRouter({
     }
     if (to.hash) {
       return {
-        selector: to.hash
-      }
+        selector: to.hash,
+      };
     }
     return {
       x: 0,
-      y: 0
-    }
-  }
+      y: 0,
+    };
+  },
 });
 
 export default router;
