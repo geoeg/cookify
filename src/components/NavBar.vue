@@ -9,17 +9,19 @@
   >
     <v-app-bar-nav-icon>
       <v-avatar size="40">
-        <router-link :to="{ name: 'home' }">
+        <router-link :to="{ name: 'home' }" tag="button">
           <!-- <v-img src="../assets/jokata.jpg" alt="" /> -->
           <v-icon large class="white--text">mdi-chef-hat</v-icon>
         </router-link>
       </v-avatar>
     </v-app-bar-nav-icon>
 
-    <router-link :to="{ name: 'home' }">
-      <v-toolbar-title class="font-weight-bold white--text"
-        >Cookify</v-toolbar-title
+    <router-link :to="{ name: 'home' }" tag="button">
+      <v-toolbar-title 
+        class="font-weight-bold white--text"
       >
+        Cookify
+      </v-toolbar-title>
     </router-link>
     
     <v-spacer></v-spacer>
@@ -33,7 +35,7 @@
       class="white--text font-weight-black overline"
       exact
     >
-      <v-icon left>{{ item.icon }}</v-icon>
+      <!-- <v-icon left>{{ item.icon }}</v-icon> -->
       {{ item.title }}
     </v-btn>
   </v-app-bar>
@@ -48,12 +50,7 @@ export default {
     items() {
       let menuItems = [
         {
-          title: "Recipes",
-          icon: "mdi-library-books",
-          link: "/recipes",
-        },
-        {
-          title: "Contact",
+          title: "Get in touch",
           icon: "mdi-account-box",
           link: "/contact",
         },

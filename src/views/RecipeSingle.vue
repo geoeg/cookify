@@ -1,6 +1,5 @@
 <template>
   <v-container fluid class="pa-0 ma-0">
-
     <v-container id="recipe-topbar" fluid class="pa-0 ma-0">
       <v-row justify="center" align="center">
         <v-col cols="12" sm="10" md="8">
@@ -12,15 +11,14 @@
       </v-row>
       <v-row justify="center" align="center">
         <v-col cols="12" sm="10" md="8" class="pa-0 ma-0">
-          <sub-nav-bar :itemData="subNavBarData" />
+          <sub-nav-bar :itemData="subNavItems" />
         </v-col>
       </v-row>
       <v-row justify="center" align="center">
         <v-col cols="11" sm="8" md="6">
-          <p>selected recipe id: {{ $route.params.id }}</p>
           <recipe-titles
-            :title="recipe[0].title"
-            :subtitle="recipe[0].subtitle"
+            :title="recipeFirebase.title"
+            :subtitle="recipeFirebase.subtitle"
           />
         </v-col>
       </v-row>
@@ -36,7 +34,10 @@
             - overview -
           </p>
           <v-divider />
-          <recipe-overview :recipe="recipe" />
+          <recipe-overview 
+            :description="recipeFirebase.description"
+            :images="recipeFirebase.images"
+          />
 
           <p
             id="ingredients-section"
@@ -45,43 +46,47 @@
             - ingredients -
           </p>
           <v-divider />
-          <recipe-ingredients :ingredients="recipe[0].ingredients" />
-          <v-divider />
+          <recipe-ingredients
+            :ingredients="recipeFirebase.ingredients"
+          />
 
-          <p id="steps-section" class="subtitle-2 text-center pa-0 mt-4 mb-2">
+          <p 
+            id="steps-section" 
+            class="subtitle-2 text-center pa-0 mt-4 mb-2">
             - steps -
           </p>
           <v-divider />
-          <recipe-steps />
+          <recipe-steps :steps="recipeFirebase.steps" />
           <v-divider />
           <p class="display-1 text-center mt-4 mb-4">Enjoy!</p>
         </v-col>
       </v-row>
     </v-container>
 
-    <v-container id="recipe-footer" fluid class="pa-0 mt-8">
+    <!-- <v-container id="recipe-footer" fluid class="pa-0 mt-8">
       <v-row align="center" justify="center">
         <v-col cols="12" sm="8" md="6">
           <recipe-carousel
             :carouselTitle="carouselTitle"
-            :recipeCards="recipe"
+            :recipes="recipeFirebase"
           />
         </v-col>
       </v-row>
-    </v-container>
+    </v-container> -->
 
     <get-top-button></get-top-button>
-
   </v-container>
 </template>
 
 <script>
+import axios from "axios";
+
 import RecipePageTitles from "../components/RecipePageTitles.vue";
 import SubNavBar from "../components/SubNavBar.vue";
 import RecipeOverview from "../components/RecipeOverview.vue";
 import RecipeIngredients from "../components/RecipeIngredients.vue";
 import RecipeSteps from "../components/RecipeSteps.vue";
-import RecipeCarousel from "../components/RecipeCarousel.vue";
+// import RecipeCarousel from "../components/RecipeCarousel.vue";
 import GetTopButton from "../components/GetTopButton.vue";
 
 export default {
@@ -91,163 +96,37 @@ export default {
     "recipe-overview": RecipeOverview,
     "recipe-ingredients": RecipeIngredients,
     "recipe-steps": RecipeSteps,
-    "recipe-carousel": RecipeCarousel,
-    "get-top-button": GetTopButton
+    // "recipe-carousel": RecipeCarousel,
+    "get-top-button": GetTopButton,
   },
   data() {
     return {
-      subNavBarData: [
+      subNavItems: [
         {
           title: "Overview",
-          href: "#overview-section"
+          href: "#overview-section",
         },
         {
           title: "Ingredients",
-          href: "#ingredients-section"
+          href: "#ingredients-section",
         },
         {
           title: "Steps",
-          href: "#steps-section"
-        }
-      ],
-      colors: [
-        "indigo",
-        "warning",
-        "pink darken-2",
-        "red lighten-1",
-        "deep-purple accent-4",
+          href: "#steps-section",
+        },
       ],
       carouselTitle: "you may want to try some of those?",
-      recipeCards: ["First", "Second", "Third", "Fourth", "Fifth"],
-      recipe: [
-        {
-          id: 1,
-          title: "recipe title",
-          subtitle: "recipe subtitle",
-          content: `"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"`,
-          images: [
-            {
-              title: "first image",
-              src:
-                "https://diethood.com/wp-content/uploads/2019/07/Whole-Roast-Chicken.jpg",
-            },
-            {
-              title: "second image",
-              src:
-                "https://s23209.pcdn.co/wp-content/uploads/2018/09/Creamy-Beef-and-ShellsIMG_6411.jpg",
-            },
-            {
-              title: "third image",
-              src:
-                "https://www.momontimeout.com/wp-content/uploads/2018/11/chicken-stir-fry.jpg",
-            },
-          ],
-          ingredients: [
-            {
-              amount: "300g",
-              label: "tomatoes",
-            },
-            {
-              amount: "200g",
-              label: "potatotes",
-            },
-            {
-              amount: "100g",
-              label: "cheese",
-            },
-          ],
-          steps: {
-            1: "lalala",
-            2: "lalala2",
-            3: "lallala3",
-          },
-        },
-        {
-          id: 2,
-          title: "recipe title2",
-          subtitle: "recipe subtitle",
-          content: `"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"`,
-          images: [
-            {
-              title: "first image",
-              src:
-                "https://diethood.com/wp-content/uploads/2019/07/Whole-Roast-Chicken.jpg",
-            },
-            {
-              title: "second image",
-              src:
-                "https://s23209.pcdn.co/wp-content/uploads/2018/09/Creamy-Beef-and-ShellsIMG_6411.jpg",
-            },
-            {
-              title: "third image",
-              src:
-                "https://www.momontimeout.com/wp-content/uploads/2018/11/chicken-stir-fry.jpg",
-            },
-          ],
-          ingredients: [
-            {
-              amount: "300g",
-              label: "tomatoes",
-            },
-            {
-              amount: "200g",
-              label: "potatotes",
-            },
-            {
-              amount: "100g",
-              label: "cheese",
-            },
-          ],
-          steps: {
-            1: "lalala",
-            2: "lalala2",
-            3: "lallala3",
-          },
-        },
-        {
-          id: 3,
-          title: "recipe title3",
-          subtitle: "recipe subtitle",
-          content: `"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"`,
-          images: [
-            {
-              title: "first image",
-              src:
-                "https://diethood.com/wp-content/uploads/2019/07/Whole-Roast-Chicken.jpg",
-            },
-            {
-              title: "second image",
-              src:
-                "https://s23209.pcdn.co/wp-content/uploads/2018/09/Creamy-Beef-and-ShellsIMG_6411.jpg",
-            },
-            {
-              title: "third image",
-              src:
-                "https://www.momontimeout.com/wp-content/uploads/2018/11/chicken-stir-fry.jpg",
-            },
-          ],
-          ingredients: [
-            {
-              amount: "300g",
-              label: "tomatoes",
-            },
-            {
-              amount: "200g",
-              label: "potatotes",
-            },
-            {
-              amount: "100g",
-              label: "cheese",
-            },
-          ],
-          steps: {
-            1: "lalala",
-            2: "lalala2",
-            3: "lallala3",
-          },
-        },
-      ],
+      recipeFirebase: "",
+      currentRecipe: this.$route.params.id - 1,
     };
+  },
+  created() {
+    axios
+      .get("/recipes.json")
+      .then((res) => {
+        this.recipeFirebase = res.data[this.$route.params.id - 1];
+      })
+      .catch((err) => console.log(err));
   },
 };
 </script>

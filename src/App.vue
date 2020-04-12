@@ -28,20 +28,20 @@ export default {
 
 <style>
 .slide-leave-active {
-  transition: opacity 0.2s ease;
+  transition: opacity 0.25s ease;
   opacity: 0;
-  animation: slide-out 0.2s easy-out forwards;
+  animation: slide-out 0.25s easy-out forwards;
 }
 .slide-leave {
   opacity: 1;
   transform: translateX();
 }
 .slide-enter-active {
-  animation: slide-in 0.2s ease-out forwards;
+  animation: slide-in 0.5s ease-out forwards;
 }
 
 .slide-move {
-  transition: transform 0.2s;
+  transition: transform 0.25s;
 }
 @keyframes slide-out {
   from {

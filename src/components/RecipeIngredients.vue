@@ -19,7 +19,7 @@
             <template v-slot:default="{ active, toggle }">
               <v-list-item-content>
                 <v-list-item-title class="subtitle-2">
-                  {{ ingr.amount }} - {{ ingr.label }}
+                  {{ ingr.amount }} {{ ingr.label }}
                 </v-list-item-title>
               </v-list-item-content>
 
