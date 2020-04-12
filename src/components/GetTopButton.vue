@@ -20,7 +20,6 @@ export default {
   name: "GetTopButton",
   methods: {
     navigateToTop() {
-      console.log("go to top of the page!");
       window.scrollTo(0, 0);
     },
   },

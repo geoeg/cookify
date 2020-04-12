@@ -36,9 +36,9 @@
               :key="recipe.title"
             >
               <router-link
-                :to="{ 
-                  name: 'singleRecipe', 
-                  params: { id: recipe.id } 
+                :to="{
+                  name: 'singleRecipe',
+                  params: { id: recipe.id },
                 }"
               >
                 <recipe-card :recipeDetails="recipe" />
@@ -272,6 +272,6 @@ export default {
         },
       ],
     };
-  }
+  },
 };
 </script>
