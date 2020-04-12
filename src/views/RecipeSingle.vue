@@ -17,7 +17,7 @@
       </v-row>
       <v-row justify="center" align="center">
         <v-col cols="11" sm="8" md="6">
-          <p>selected recipe id: {{ this.$route.params.id }}</p>
+          <p>selected recipe id: {{ $route.params.id }}</p>
           <recipe-titles
             :title="recipe[0].title"
             :subtitle="recipe[0].subtitle"
