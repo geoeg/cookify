@@ -1,5 +1,5 @@
 <template>
-  <v-app color="blue lighten-3">
+  <v-app id="main-app">
     <nav-bar></nav-bar>
 
     <v-content>
@@ -27,6 +27,9 @@ export default {
 </script>
 
 <style>
+#main-app {
+  background-color: white;
+}
 .slide-leave-active {
   transition: opacity 0.25s ease;
   opacity: 0;

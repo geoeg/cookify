@@ -5,7 +5,7 @@
         <v-col cols="12" sm="10" md="8">
           <v-img
             aspect-ratio="4"
-            src="https://www.wholesomeyum.com/wp-content/uploads/2019/09/wholesomeyum-keto-chaffles-recipe-sweet-savory-5-ways-24.jpg"
+            src="https://images.ctfassets.net/3s5io6mnxfqz/3pLESMFjNopcam5J5qGcoT/0427544b060a8fd29e3c0b68281d56cf/AdobeStock_191057762.jpeg"
           />
         </v-col>
       </v-row>
@@ -104,7 +104,7 @@ export default {
 };
 </script>
 <style>
-  a {
+a {
   text-decoration: none;
 }
 </style>

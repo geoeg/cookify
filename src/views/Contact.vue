@@ -7,14 +7,16 @@
         </v-col>
         <v-col cols="10">
           <v-row justify="center">
-            <v-img
-              id="main-avatar"
-              width="100%"
-              max-width="400px"
-              class="elevation-3"
-              src="../assets/chef.jpg"
-              alt=""
-            ></v-img>
+            <v-avatar size="auto">
+              <v-img
+                id="main-avatar"
+                width="100%"
+                max-width="400px"
+                class="elevation-3"
+                src="../assets/chef.jpg"
+                alt=""
+              ></v-img>
+            </v-avatar>
           </v-row>
         </v-col>
         <v-col cols="11" sm="8" md="6">
