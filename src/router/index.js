@@ -16,16 +16,6 @@ const routes = [
 
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/RecipesCatalog.vue"),
-    // children: [
-    //   {
-    //     path: 'recipe',
-    //     component: () => import(/* webpackChunkName: "singleRecipe" */ '../views/RecipeSingle.vue')
-    //   },
-    //   {
-    //     path: ':recipeId',
-    //     component: () => import(/* webpackChunkName: "singleRecipe" */ '../views/RecipeSingle.vue')
-    //   }
-    // ]
   },
   {
     path: "/recipe",
@@ -34,11 +24,17 @@ const routes = [
       import(/* webpackChunkName: "recipe" */ "../views/RecipeSingle.vue"),
   },
   {
+    path: "/recipe/:id",
+    name: "singleRecipe",
+    component: () =>
+      import(/* webpackChunkName: "recipe" */ "../views/RecipeSingle.vue"),
+  },
+  {
     path: "/contact",
     name: "contact",
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/Contact.vue"),
-  },
+  }
 ];
 
 const router = new VueRouter({

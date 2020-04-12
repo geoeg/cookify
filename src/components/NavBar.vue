@@ -9,14 +9,14 @@
   >
     <v-app-bar-nav-icon>
       <v-avatar size="40">
-        <router-link to="/">
+        <router-link :to="{ name: 'home' }">
           <!-- <v-img src="../assets/jokata.jpg" alt="" /> -->
           <v-icon large class="white--text">mdi-chef-hat</v-icon>
         </router-link>
       </v-avatar>
     </v-app-bar-nav-icon>
 
-    <router-link to="/">
+    <router-link :to="{ name: 'home' }">
       <v-toolbar-title class="font-weight-bold white--text"
         >Cookify</v-toolbar-title
       >

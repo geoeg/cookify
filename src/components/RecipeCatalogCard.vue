@@ -4,7 +4,7 @@
       <v-img aspect-ratio="1.25" :src="recipeDetails.image" />
       <v-card-title>{{ recipeDetails.title }}</v-card-title>
       <v-card-subtitle>{{ recipeDetails.subtitle }}</v-card-subtitle>
-      <v-card-text class="text-justify">{{ recipeDetails.description }}</v-card-text>
+      <v-card-text class="text-justify">{{ recipeDetails.shortDescription }}</v-card-text>
       <!-- <v-card-actions>
         <v-spacer></v-spacer>
         <v-btn
