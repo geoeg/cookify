@@ -1,8 +1,7 @@
 <template>
   <v-fab-transition>
     <v-btn
-      color="grey darken-1"
-      dark
+      color="primary"
       fixed
       small
       fab

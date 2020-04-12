@@ -10,13 +10,24 @@
       show-arrows-on-hover
     >
       <v-carousel-item v-for="(recipeSlide, i) in recipes" :key="i">
-        <v-card height="100%">
-          <v-container fluid class="pa-0 ma-0">
-            <v-img aspect-ratio="2" :src="recipeSlide.thumbnail" />
-            <v-card-title class="grey">{{ recipeSlide.title }}</v-card-title>
-            <v-card-subtitle class="grey">{{ recipeSlide.subtitle }}</v-card-subtitle>
-          </v-container>
-        </v-card>
+        <!-- <router-link
+          :to="{
+            name: 'singleRecipe',
+            params: { id: recipeSlide.id },
+          }"
+        > -->
+          <v-card height="100%">
+            <v-container fluid class="pa-0 ma-0">
+              <v-img aspect-ratio="2" :src="recipeSlide.thumbnail" />
+              <v-card-title class="primary">{{
+                recipeSlide.title
+              }}</v-card-title>
+              <v-card-subtitle class="primary">{{
+                recipeSlide.subtitle
+              }}</v-card-subtitle>
+            </v-container>
+          </v-card>
+        <!-- </router-link> -->
       </v-carousel-item>
     </v-carousel>
   </div>
@@ -24,6 +35,6 @@
 
 <script>
 export default {
-  props: ["carouselTitle", "recipes"]
+  props: ["carouselTitle", "recipes"],
 };
 </script>

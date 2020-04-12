@@ -5,18 +5,18 @@
     absolute
     flat
     :hide-on-scroll="true"
-    color="grey"
+    color="primary"
   >
     <v-app-bar-nav-icon>
       <v-avatar size="40">
-        <router-link :to="{ name: 'home' }" tag="button">
+        <router-link :to="{ name: 'home' }" tag="a">
           <!-- <v-img src="../assets/jokata.jpg" alt="" /> -->
           <v-icon large class="white--text">mdi-chef-hat</v-icon>
         </router-link>
       </v-avatar>
     </v-app-bar-nav-icon>
 
-    <router-link :to="{ name: 'home' }" tag="button">
+    <router-link :to="{ name: 'home' }" tag="a">
       <v-toolbar-title 
         class="font-weight-bold white--text"
       >
@@ -61,4 +61,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+a {
+  text-decoration: none;
+}
+</style>

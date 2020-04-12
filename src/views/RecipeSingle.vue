@@ -34,7 +34,7 @@
             - overview -
           </p>
           <v-divider />
-          <recipe-overview 
+          <recipe-overview
             :description="recipeFirebase.description"
             :images="recipeFirebase.images"
           />
@@ -46,13 +46,9 @@
             - ingredients -
           </p>
           <v-divider />
-          <recipe-ingredients
-            :ingredients="recipeFirebase.ingredients"
-          />
+          <recipe-ingredients :ingredients="recipeFirebase.ingredients" />
 
-          <p 
-            id="steps-section" 
-            class="subtitle-2 text-center pa-0 mt-4 mb-2">
+          <p id="steps-section" class="subtitle-2 text-center pa-0 mt-4 mb-2">
             - steps -
           </p>
           <v-divider />
@@ -63,16 +59,16 @@
       </v-row>
     </v-container>
 
-    <!-- <v-container id="recipe-footer" fluid class="pa-0 mt-8">
+    <v-container id="recipe-footer" fluid class="pa-0 mt-8">
       <v-row align="center" justify="center">
         <v-col cols="12" sm="8" md="6">
           <recipe-carousel
             :carouselTitle="carouselTitle"
-            :recipes="recipeFirebase"
+            :recipes="recipesList"
           />
         </v-col>
       </v-row>
-    </v-container> -->
+    </v-container>
 
     <get-top-button></get-top-button>
   </v-container>
@@ -86,7 +82,7 @@ import SubNavBar from "../components/header/SubNavBar.vue";
 import RecipeOverview from "../components/recipes/RecipeOverview.vue";
 import RecipeIngredients from "../components/recipes/RecipeIngredients.vue";
 import RecipeSteps from "../components/recipes/RecipeSteps.vue";
-// import RecipeCarousel from "../components/RecipeCarousel.vue";
+import RecipeCarousel from "../components/recipes/RecipeCarousel.vue";
 import GetTopButton from "../components/footer/GetTopButton.vue";
 
 export default {
@@ -96,7 +92,7 @@ export default {
     "recipe-overview": RecipeOverview,
     "recipe-ingredients": RecipeIngredients,
     "recipe-steps": RecipeSteps,
-    // "recipe-carousel": RecipeCarousel,
+    "recipe-carousel": RecipeCarousel,
     "get-top-button": GetTopButton,
   },
   data() {
@@ -117,7 +113,7 @@ export default {
       ],
       carouselTitle: "you may want to try some of those?",
       recipeFirebase: "",
-      currentRecipe: this.$route.params.id - 1,
+      recipesList: ""
     };
   },
   created() {
@@ -125,8 +121,15 @@ export default {
       .get("/recipes.json")
       .then((res) => {
         this.recipeFirebase = res.data[this.$route.params.id - 1];
+        this.recipesList = res.data;
       })
       .catch((err) => console.log(err));
   },
 };
 </script>
+
+<style>
+a {
+  text-decoration: none;
+}
+</style>
