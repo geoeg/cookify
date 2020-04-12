@@ -1,6 +1,15 @@
 <template>
   <v-fab-transition>
-    <v-btn color="grey darken-1" dark fixed small fab bottom right>
+    <v-btn
+      color="grey darken-1"
+      dark
+      fixed
+      small
+      fab
+      bottom
+      right
+      @click="navigateToTop"
+    >
       <v-icon>mdi-arrow-up-bold-circle</v-icon>
     </v-btn>
   </v-fab-transition>
@@ -9,5 +18,11 @@
 <script>
 export default {
   name: "GetTopButton",
+  methods: {
+    navigateToTop() {
+      console.log("go to top of the page!");
+      window.scrollTo(0, 0);
+    },
+  },
 };
 </script>

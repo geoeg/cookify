@@ -20,12 +20,8 @@ export default {
     "nav-bar": NavBar,
     "bottom-bar": Footer,
   },
-  data: () => ({}),
+  data: () => ({
+    
+  }),
 };
 </script>
-
-<style scoped>
-#main-app {
-  background-color: lightblue;
-}
-</style>

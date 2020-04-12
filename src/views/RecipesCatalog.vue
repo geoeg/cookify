@@ -34,11 +34,19 @@
               v-for="recipe in recipesList"
               :key="recipe.title"
             >
+            <router-link to="/recipe">
               <recipe-card :recipeDetails="recipe" />
+            </router-link>
             </v-col>
           </v-row>
         </v-col>
       </v-row>
+    </v-container>
+
+    <v-container>
+      <p id="bulgarian-food-section">bg food</p>
+      <p id="international-food-section">int food</p>
+      <p id="desserts-section">desserts</p>
     </v-container>
 
     <get-top-button></get-top-button>
@@ -65,15 +73,15 @@ export default {
       subNavBarData: [
         {
           title: "Bulgaria",
-          href: "#overview-section"
+          href: "#bulgarian-food-section"
         },
         {
           title: "International",
-          href: "#ingredients-section"
+          href: "#international-food-section"
         },
         {
           title: "Desserts",
-          href: "#steps-section"
+          href: "#desserts-section"
         }
       ],
       recipesList: [
