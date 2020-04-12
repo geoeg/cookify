@@ -5,7 +5,7 @@
     absolute
     flat
     :hide-on-scroll="true"
-    color="grey darken-1"
+    color="grey"
   >
     <v-app-bar-nav-icon>
       <v-avatar size="40">
@@ -30,13 +30,13 @@
       v-for="item in items"
       :key="item.title"
       :to="item.link"
-      text
+      icon
       rounded
-      class="white--text font-weight-black overline"
+      class="white--text font-weight-black"
       exact
     >
-      <!-- <v-icon left>{{ item.icon }}</v-icon> -->
-      {{ item.title }}
+      <v-icon>{{ item.icon }}</v-icon>
+      <!-- {{ item.title }} -->
     </v-btn>
   </v-app-bar>
 </template>
@@ -51,7 +51,7 @@ export default {
       let menuItems = [
         {
           title: "Get in touch",
-          icon: "mdi-account-box",
+          icon: "mdi-information",
           link: "/contact",
         },
       ];
