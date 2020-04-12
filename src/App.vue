@@ -3,7 +3,9 @@
     <nav-bar></nav-bar>
 
     <v-content>
-      <router-view></router-view>
+      <transition name="slide" mode="out-in">
+        <router-view></router-view>
+      </transition>
     </v-content>
 
     <bottom-bar></bottom-bar>
@@ -20,8 +22,41 @@ export default {
     "nav-bar": NavBar,
     "bottom-bar": Footer,
   },
-  data: () => ({
-    
-  }),
+  data: () => ({}),
 };
 </script>
+
+<style>
+.slide-leave-active {
+  transition: opacity 0.2s ease;
+  opacity: 0;
+  animation: slide-out 0.2s easy-out forwards;
+}
+.slide-leave {
+  opacity: 1;
+  transform: translateX();
+}
+.slide-enter-active {
+  animation: slide-in 0.2s ease-out forwards;
+}
+
+.slide-move {
+  transition: transform 0.2s;
+}
+@keyframes slide-out {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-30px);
+  }
+}
+@keyframes slide-in {
+  from {
+    transform: translateY(-30px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+</style>
