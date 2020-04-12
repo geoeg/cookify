@@ -28,8 +28,8 @@
 </template>
 
 <script>
-import GetTopButton from "../components/GetTopButton.vue";
-import RecipePageTitles from "../components/RecipePageTitles.vue";
+import GetTopButton from "../components/footer/GetTopButton.vue";
+import RecipePageTitles from "../components/recipes/RecipePageTitles.vue";
 
 export default {
   name: "Contact",

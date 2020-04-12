@@ -60,10 +60,10 @@
 </template>
 
 <script>
-import RecipePageTitles from "../components/RecipePageTitles.vue";
+import RecipePageTitles from "../components/recipes/RecipePageTitles.vue";
 // import SubNavBar from "../components/SubNavBar.vue";
-import RecipeCatalogCard from "../components/RecipeCatalogCard.vue";
-import GetTopButton from "../components/GetTopButton.vue";
+import RecipeCatalogCard from "../components/recipes/RecipeCatalogCard.vue";
+import GetTopButton from "../components/footer/GetTopButton.vue";
 import axios from "axios";
 
 export default {

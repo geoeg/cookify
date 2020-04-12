@@ -81,13 +81,13 @@
 <script>
 import axios from "axios";
 
-import RecipePageTitles from "../components/RecipePageTitles.vue";
-import SubNavBar from "../components/SubNavBar.vue";
-import RecipeOverview from "../components/RecipeOverview.vue";
-import RecipeIngredients from "../components/RecipeIngredients.vue";
-import RecipeSteps from "../components/RecipeSteps.vue";
+import RecipePageTitles from "../components/recipes/RecipePageTitles.vue";
+import SubNavBar from "../components/header/SubNavBar.vue";
+import RecipeOverview from "../components/recipes/RecipeOverview.vue";
+import RecipeIngredients from "../components/recipes/RecipeIngredients.vue";
+import RecipeSteps from "../components/recipes/RecipeSteps.vue";
 // import RecipeCarousel from "../components/RecipeCarousel.vue";
-import GetTopButton from "../components/GetTopButton.vue";
+import GetTopButton from "../components/footer/GetTopButton.vue";
 
 export default {
   components: {
